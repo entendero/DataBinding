@@ -7,78 +7,55 @@ namespace DemoDataBinding1
         public Form1()
         {
             InitializeComponent();
-            //dades exemple 2
-            Llibre llibre1 = new Llibre("El Quixot", "Miguel de Cervantes", 1605, false);
-            Llibre llibre2 = new Llibre("Mecanoscrit del segon origen", "Manuel de Pedrolo", 1974, false);
-            Llibre llibre3 = new Llibre("1984", "George Orwell", 1949, true);
+            //Generem dades d'alumnes.
+            Alumne alum1 = new Alumne("Hugo", "Martra", "hmartra@vidalibarraquer.net", "12/04/2005", true, false);
+            Alumne alum2 = new Alumne("David", "Paz", "hmartra@vidalibarraquer.net", "22/07/2002", false, true);
+            Alumne alum3 = new Alumne("Marc", "Cortes", "mcortes@vidalibarraquer.net", "05/03/2003", true, false);
 
-            //afegir els llibres a la llista "llibres"
-            List<Llibre> llibres= new List<Llibre>();
-            llibres.Add(llibre1);
-            llibres.Add(llibre2);
-            llibres.Add(llibre3);
+            //afegim els alumnes creats anteriorment a la llista d'alumnes.
+            List<Alumne> alumnes = new List<Alumne>();
+            alumnes.Add(alum1);
+            alumnes.Add(alum2);
+            alumnes.Add(alum3);
 
-            //binding exemple 2
-            //BindingSource bs = new BindingSource();
-
-            //binding exemple 3
+            //Creem el binding
             bs = new BindingSource();
-            bs.DataSource= llibres;
-            ////combobox
-            //comboBoxLlibre.DataSource= bs;
-            //comboBoxLlibre.DisplayMember= "Titol";
-            ////
-            //textBoxAutor.DataBindings.Add("Text", bs, "Autor");
-            ////
-            //textBoxAny.DataBindings.Add("Text", bs, "Any");
-            ////
-            //checkBoxPrestat.DataBindings.Add("Checked", bs, "Prestat");
+            bs.DataSource = alumnes;
 
-            //binding exemple 3
-            //datagridview
+            //Creem les columnes que tindrà
             grid.DataSource = bs;
             //
-            textBoxTitol2.DataBindings.Add("Text", bs, "Titol");
+            textBoxNom.DataBindings.Add("Text", bs, "nom");
             //
-            textBoxAutor2.DataBindings.Add("Text", bs, "Autor");
+            textBoxCognom.DataBindings.Add("Text", bs, "cognoms");
             //
-            textBoxAny2.DataBindings.Add("Text", bs, "Any");
-            //
-            //checkBoxPrestat2.DataBindings.Add("Checked", bs, "Prestat");
-            radioPrestat.DataBindings.Add("Checked", bs, "Prestat");
-            radioComprat.DataBindings.Add("Checked", bs, "Comprat");
 
-            //ocultar msg error
-            labelError.Visible = false;
+            textBoxMail.DataBindings.Add("Text", bs, "mail");
+            //
+            textBoxDataNaix.DataBindings.Add("Text", bs, "data_naixement");
 
-            //demo teclat
-            ToolTip tip = new ToolTip();
-            tip.SetToolTip(buttonAfegir, "Ctrl+F5");
-            tip.SetToolTip(buttonEsborrar, "Ctrl+F8");
-            //definir shortcut per botó ajuda = Ctrl + F12
-            //buttonAjuda.ShortcutKeys = Keys.Control | Keys.F12;
+            radioHorariMati.DataBindings.Add("Checked", bs, "horari_mati");
+            radioHorariTarda.DataBindings.Add("Checked", bs, "horari_tarda");
+            checkBoxCurs1.DataBindings.Add("Checked", bs, "Curset1");
+            checkBoxCurs2.DataBindings.Add("Checked", bs, "Curset2");
+            checkBoxCurs3.DataBindings.Add("Checked", bs, "Curset3");
+
+
         }
 
-        //exemple 3
-        //public BindingSource ComboBindingSource
-        //{
-        //    get { return bs; }
-        //}
-
-    private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             //exemple 1
-            label1.DataBindings.Add("Text", textBox1, "Text");
         }
 
         private void buttonAfegir_Click(object sender, EventArgs e)
         {
             //crear llibre en blanc
-            Llibre llibreNou = new Llibre("", "", 0, false);
+            Alumne nouAlumne = new Alumne("", "", "", "", true, false);
             //afegir al bs
-            bs.Add(llibreNou);
+            bs.Add(nouAlumne);
             //seleccionar el llibre nou al grid
-            int rowIndex = bs.IndexOf(llibreNou);
+            int rowIndex = bs.IndexOf(nouAlumne);
             grid.CurrentCell = grid.Rows[rowIndex].Cells[1];
         }
 
@@ -102,39 +79,8 @@ namespace DemoDataBinding1
             }
             else
             {
-                // Mostra el missatge d'error
-                labelError.Visible = true;
-
-                // Inicia el temporitzador per amagar el missatge
-                var timer = new System.Windows.Forms.Timer();
-                timer.Interval = 2500; // 2,5 segons
-                timer.Tick += (s, ev) =>
-                {
-                    labelError.Visible = false;
-                    timer.Stop();
-                };
-                timer.Start();
             }
         }
-
-
-        //no utilitzat - cal que el control tingui el focus
-        //i posar la propietat KeyPreview del From a true: this.KeyPreview = true;
-        //private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        //{
-        //    //gestionar combinació de tecles per Esborrar
-        //    if (e.KeyCode == Keys.F8 && e.Modifiers == Keys.Control)
-        //    {
-        //        // cridar al mateix handler del botó d'esborrar
-        //        buttonEsborrar_Click(sender, e);
-        //    }
-        //    //gestionar combinació de tecles per Afegir
-        //    if (e.KeyCode == Keys.F5 && e.Modifiers == Keys.Control)
-        //    {
-        //        // simular click sobre botó Afegir
-        //        buttonAfegir.PerformClick();
-        //    }
-        //}
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -152,6 +98,30 @@ namespace DemoDataBinding1
                 //marcar event com a gestionat
                 e.Handled = true;
             }
+        }
+
+        private void buttonAjuda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
