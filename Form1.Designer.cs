@@ -209,7 +209,7 @@ namespace DemoDataBinding1
             buttonEsborrar.Name = "buttonEsborrar";
             buttonEsborrar.Size = new Size(134, 31);
             buttonEsborrar.TabIndex = 4;
-            buttonEsborrar.Text = "Esborrar (Ctrl+F8)";
+            buttonEsborrar.Text = "Esborrar (Ctrl+4)";
             buttonEsborrar.UseVisualStyleBackColor = true;
             buttonEsborrar.Click += buttonEsborrar_Click;
             // 
@@ -220,7 +220,7 @@ namespace DemoDataBinding1
             buttonAfegir.Name = "buttonAfegir";
             buttonAfegir.Size = new Size(134, 31);
             buttonAfegir.TabIndex = 3;
-            buttonAfegir.Text = "Afegir (Ctrl+F5)";
+            buttonAfegir.Text = "Afegir (Ctrl+3)";
             buttonAfegir.UseVisualStyleBackColor = true;
             buttonAfegir.Click += buttonAfegir_Click;
             // 
