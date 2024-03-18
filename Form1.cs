@@ -84,7 +84,7 @@ namespace DemoDataBinding1
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F8 && e.Control)
+            if (e.KeyCode == Keys.F3 && e.Control)
             {
                 //opció1: cridar al mateix event handler del buttonEsborrar
                 buttonEsborrar_Click(sender, e);
@@ -93,8 +93,7 @@ namespace DemoDataBinding1
             }
             else if (e.KeyCode == Keys.F5 && e.Control)
             {
-                //opció2: generar un event de click sobre el control
-                buttonAfegir.PerformClick();
+                buttonAfegir_Click(sender, e);
                 //marcar event com a gestionat
                 e.Handled = true;
             }

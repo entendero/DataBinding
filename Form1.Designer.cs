@@ -31,6 +31,8 @@ namespace DemoDataBinding1
         {
             tabControl1 = new TabControl();
             tabPage3 = new TabPage();
+            label3 = new Label();
+            textBoxMail = new TextBox();
             label2 = new Label();
             label1 = new Label();
             checkBoxCurs3 = new CheckBox();
@@ -49,8 +51,6 @@ namespace DemoDataBinding1
             label7 = new Label();
             textBoxDataNaix = new TextBox();
             textBoxCognom = new TextBox();
-            label3 = new Label();
-            textBoxMail = new TextBox();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
@@ -99,6 +99,23 @@ namespace DemoDataBinding1
             tabPage3.Text = "grid";
             tabPage3.UseVisualStyleBackColor = true;
             tabPage3.Click += tabPage3_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(20, 425);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 20);
+            label3.TabIndex = 30;
+            label3.Text = "Data Naixement";
+            // 
+            // textBoxMail
+            // 
+            textBoxMail.Location = new Point(20, 388);
+            textBoxMail.Margin = new Padding(3, 4, 3, 4);
+            textBoxMail.Name = "textBoxMail";
+            textBoxMail.Size = new Size(158, 27);
+            textBoxMail.TabIndex = 29;
             // 
             // label2
             // 
@@ -187,23 +204,23 @@ namespace DemoDataBinding1
             // 
             // buttonEsborrar
             // 
-            buttonEsborrar.Location = new Point(523, 351);
+            buttonEsborrar.Location = new Point(515, 351);
             buttonEsborrar.Margin = new Padding(3, 4, 3, 4);
             buttonEsborrar.Name = "buttonEsborrar";
-            buttonEsborrar.Size = new Size(126, 31);
+            buttonEsborrar.Size = new Size(134, 31);
             buttonEsborrar.TabIndex = 4;
-            buttonEsborrar.Text = "esborrar";
+            buttonEsborrar.Text = "Esborrar (Ctrl+F8)";
             buttonEsborrar.UseVisualStyleBackColor = true;
             buttonEsborrar.Click += buttonEsborrar_Click;
             // 
             // buttonAfegir
             // 
-            buttonAfegir.Location = new Point(523, 312);
+            buttonAfegir.Location = new Point(515, 312);
             buttonAfegir.Margin = new Padding(3, 4, 3, 4);
             buttonAfegir.Name = "buttonAfegir";
-            buttonAfegir.Size = new Size(126, 31);
+            buttonAfegir.Size = new Size(134, 31);
             buttonAfegir.TabIndex = 3;
-            buttonAfegir.Text = "afegir";
+            buttonAfegir.Text = "Afegir (Ctrl+F5)";
             buttonAfegir.UseVisualStyleBackColor = true;
             buttonAfegir.Click += buttonAfegir_Click;
             // 
@@ -277,23 +294,6 @@ namespace DemoDataBinding1
             textBoxCognom.Name = "textBoxCognom";
             textBoxCognom.Size = new Size(158, 27);
             textBoxCognom.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(20, 425);
-            label3.Name = "label3";
-            label3.Size = new Size(117, 20);
-            label3.TabIndex = 30;
-            label3.Text = "Data Naixement";
-            // 
-            // textBoxMail
-            // 
-            textBoxMail.Location = new Point(20, 388);
-            textBoxMail.Margin = new Padding(3, 4, 3, 4);
-            textBoxMail.Name = "textBoxMail";
-            textBoxMail.Size = new Size(158, 27);
-            textBoxMail.TabIndex = 29;
             // 
             // Form1
             // 
